@@ -1,0 +1,39 @@
+
+
+
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Logo-->
+        <div class = "navbar-header">
+            <a class = "navbar-brand" href="{% url 'music:index' %}">Home</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <li class="">
+                <a href="#"> 
+                    <span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp; Logout
+                </a>
+            </li>
+        </div>
+
+
+
+    </div>
+    
+
+</nav>
+
+
+
+
+{% if all_album %}
+    <h2>Here are all my album</h2>
+    <ul>
+        {% for album in all_album %}
+        <li><a href = "{% url 'music:detail' album.id %}"> {{ album.album_title }} </a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>You don't have any album</h3>
+{% endif %}
